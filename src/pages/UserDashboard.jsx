@@ -18,24 +18,32 @@ const UserDashboard = () => {
         }
     };
 
-    if (error) return <div className="container text-center error-msg">{error}</div>;
-    if (!profile) return <div className="container text-center">Loading...</div>;
+    if (error)
+        return <div className="min-h-screen flex items-center justify-center text-red-500">{error}</div>;
+    if (!profile)
+        return <div className="min-h-screen flex items-center justify-center text-gray-600">Loading...</div>;
 
     return (
-        <div className="container">
-            <h2 className="text-center" style={{ marginBottom: '2rem' }}>My Profile</h2>
-            <div className="glass-card">
-                <div style={{ textAlign: 'center' }}>
-                    <div style={{ width: '80px', height: '80px', background: 'white', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#312e81', fontSize: '2rem', fontWeight: 'bold' }}>
-                        {profile.username.charAt(0).toUpperCase()}
-                    </div>
-                    <h3>{profile.username}</h3>
-                    <p style={{ color: '#a5b4fc', background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'inline-block' }}>
-                        Role: {profile.role}
-                    </p>
-                    <div style={{ marginTop: '2rem', color: '#cbd5e1' }}>
-                        <p>User ID: {profile.id}</p>
-                    </div>
+        <div className="min-h-screen bg-gray-50 px-4 py-8 flex justify-center">
+            <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-center">
+                
+                {/* Avatar */}
+                <div className="w-20 h-20 bg-indigo-100 text-indigo-800 rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-4">
+                    {profile.username.charAt(0).toUpperCase()}
+                </div>
+
+                {/* Username */}
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{profile.username}</h3>
+
+                {/* Role badge */}
+                <span className="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                    Role: {profile.role.replace('ROLE_', '')}
+                </span>
+
+                {/* Additional info */}
+                <div className="text-gray-600 mt-4 space-y-1">
+                    <p>User ID: {profile.id}</p>
+                    {/* You can add more profile info here if needed */}
                 </div>
             </div>
         </div>

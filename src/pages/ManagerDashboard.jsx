@@ -29,21 +29,33 @@ const ManagerDashboard = () => {
     };
 
     return (
-        <div className="container">
-            <h2 className="text-center" style={{ marginBottom: '2rem' }}>Manager Dashboard</h2>
-            {error && <p className="error-msg text-center">{error}</p>}
+        <div className="min-h-screen bg-gray-50 px-4 py-8">
+            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+                Manager Dashboard
+            </h2>
 
-            <div style={{ display: 'grid', gap: '1rem' }}>
-                {users.length === 0 && <p className="text-center">No users found.</p>}
+            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+                {users.length === 0 && (
+                    <p className="text-center text-gray-600 col-span-full">No users found.</p>
+                )}
+
                 {users.map(user => (
-                    <div key={user.id} className="glass-card" style={{ margin: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '100%' }}>
+                    <div
+                        key={user.id}
+                        className="bg-white rounded-xl shadow-md p-6 flex justify-between items-center hover:shadow-lg transition"
+                    >
                         <div>
-                            <h3 style={{ margin: 0 }}>{user.username}</h3>
-                            <span style={{ fontSize: '0.9rem', color: '#a5b4fc', background: 'rgba(255,255,255,0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
-                                {user.role}
+                            <h3 className="text-lg font-semibold text-gray-800">{user.username}</h3>
+                            <span className="text-sm text-indigo-600 bg-indigo-100 px-2 py-1 rounded-md mt-1 inline-block">
+                                {user.role.replace('ROLE_', '')}
                             </span>
                         </div>
-                        <button className="btn" style={{ background: '#ef4444', width: 'auto' }} onClick={() => handleDelete(user.username)}>
+                        <button
+                            onClick={() => handleDelete(user.username)}
+                            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                        >
                             Delete
                         </button>
                     </div>

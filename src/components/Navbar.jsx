@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <Link to="/" className="nav-brand">RBAC System</Link>
+            <Link to="/" className="nav-brand">Task Tracker</Link>
             <div className="nav-links">
                 {!user ? (
                     <>

@@ -23,20 +23,43 @@ const SuperAdminLogin = () => {
     };
 
     return (
-        <div className="container">
-            <div className="glass-card" style={{ boxShadow: '0 8px 32px 0 rgba(220, 38, 38, 0.3)' }}>
-                <h2 className="text-center" style={{ color: '#f87171' }}>Super Admin Login</h2>
-                {error && <p className="error-msg text-center">{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label className="form-label">Username</label>
-                        <input type="text" className="form-input" value={username} onChange={e => setUsername(e.target.value)} required />
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+            <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
+                <h2 className="text-2xl font-bold text-red-600 text-center mb-6">
+                    Super Admin Login
+                </h2>
+
+                {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label className="block text-gray-700 mb-1">Username</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label">Password</label>
-                        <input type="password" className="form-input" value={password} onChange={e => setPassword(e.target.value)} required />
+
+                    <div>
+                        <label className="block text-gray-700 mb-1">Password</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
                     </div>
-                    <button type="submit" className="btn" style={{ background: '#dc2626' }}>Login as Admin</button>
+
+                    <button
+                        type="submit"
+                        className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition font-medium"
+                    >
+                        Login as Admin
+                    </button>
                 </form>
             </div>
         </div>

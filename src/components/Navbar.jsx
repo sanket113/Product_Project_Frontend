@@ -2,17 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-/**
- * Navigation bar component that displays different links based on authentication status and user role.
- * Shows login/register links for unauthenticated users, dashboard links for authenticated users.
- */
 const Navbar = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 
-    /**
-     * Handles user logout by calling logout function and navigating to login page.
-     */
     const handleLogout = () => {
         logout();
         navigate('/login');

@@ -17,16 +17,25 @@ const Home = () => {
                 <p style={{ fontSize: '1.2rem', color: '#cbd5e1', maxWidth: '600px', margin: '0 auto' }}>
                     Manage your tasks seamlessly and stay focused on what matters most. Track progress, update status, and work smarter every day.
                 </p>
-                <div style={{ marginTop: '2rem' }}>
-                    <a href="/register" className="btn" style={{ display: 'inline-block', width: 'auto', padding: '1rem 2rem' }}>Get Started</a>
+                <div className="mt-8">
+                    <a
+                        href="/register"
+                        className="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                    >
+                        Get Started
+                    </a>
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginTop: '4rem' }}>
+            {/* Features Section */}
+            <div className="max-w-6xl mx-auto px-4 py-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {dummyFeatures.map((feature, index) => (
-                    <div key={index} className="glass-card" style={{ margin: 0, padding: '1.5rem' }}>
-                        <h3 style={{ color: '#a78bfa', marginTop: 0 }}>{feature.title}</h3>
-                        <p style={{ color: '#e2e8f0', lineHeight: '1.6' }}>{feature.desc}</p>
+                    <div
+                        key={index}
+                        className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow"
+                    >
+                        <h3 className="text-indigo-600 font-semibold text-xl mb-2">{feature.title}</h3>
+                        <p className="text-gray-700 text-sm leading-relaxed">{feature.desc}</p>
                     </div>
                 ))}
             </div>
